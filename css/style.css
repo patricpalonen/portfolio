@@ -1,0 +1,169 @@
+/* Värit määritelty muuttujina */
+:root {
+    --primary-color: #4070f4;
+    --text-color: #0E2431;
+    --background-color: #f4f4f9;
+    --section-background-color: #F0F8FF;
+    --link-hover-color: #2851a3;
+  }
+  
+  /* Yleiset tyylit */
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Ubuntu', sans-serif;
+    color: var(--text-color);
+  }
+  
+  p {
+    margin: 0 0 1.5rem;
+  }
+  
+  /* Navigaatiopalkki */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #4070f4; /* Sininen tausta */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+nav.scrolled {
+    background-color: #ffffff; /* Valkoinen tausta skrollatessa */
+}
+
+nav .logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff; /* Valkoinen teksti */
+    transition: color 0.3s ease;
+}
+
+nav.scrolled .logo {
+    color: #4267b2; /* Sininen teksti skrollatessa */
+}
+
+nav ul {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+}
+
+nav ul li {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffffff; /* Valkoinen teksti */
+    transition: color 0.3s ease;
+}
+
+nav.scrolled ul li a {
+    color: #4267b2; /* Sininen teksti skrollatessa */
+}
+
+/* Navigaatiopalkin säätö */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+section {
+    padding: 2rem;
+}
+
+.hero {
+    text-align: center;
+    padding: 5rem 2rem;
+    background-color: #e7f3ff; /* Kevyt sininen */
+    color: #333;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+}
+
+.hero .cta {
+    margin-top: 1.5rem;
+}
+
+.hero .cta a {
+    text-decoration: none;
+    background-color: #4267b2;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.hero .cta a:hover {
+    background-color: #365899;
+}
+  
+  /* Osiot */
+  section {
+    padding: 2rem;
+    margin: 1rem 0;
+    background-color: var(--section-background-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  section h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  /* Painikkeet */
+  button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: var(--link-hover-color);
+  }
+  
+  /* Responsiivisuus */
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+    }
+  
+    nav a {
+      margin: 0.5rem 0;
+    }
+  
+    section {
+      padding: 1rem;
+    }
+  }
+  
