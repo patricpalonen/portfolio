@@ -161,3 +161,46 @@ nav .social-links img:hover {
 .hero .cta a:hover {
     background-color: var(--hover-color);
 }
+
+/* Esittely-osio */
+#about {
+  display: flex; /* Kuva ja teksti vierekkäin */
+  align-items: center; /* Tasoitetaan pystysuunnassa */
+  justify-content: space-between; /* Tasataan sisältö vaakasuunnassa */
+  padding: 2rem; /* Lisää tyhjää tilaa sisällön ympärille */
+  background-color: var(--section-background); /* Taustan väri */
+}
+
+#about img {
+  max-width: 350px; /* Kuvan maksimi leveys */
+  height: auto; /* Skaalaa kuvan korkeuden suhteessa leveyteen */
+  border-radius: 50%; /* Pyöristetty kuva */
+  margin-right: 2rem; /* Väli kuvaan ja tekstiin */
+}
+
+#about .container {
+  max-width: 70%; /* Tekstin maksimileveys */
+  text-align: left; /* Varmistetaan vasemmalle tasattu teksti */
+}
+
+#about h2 {
+  font-size: 2rem; /* Otsikon fonttikoko */
+  font-weight: bold;
+  color: #333; /* Musta väri */
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid #4070f4; /* Alleviivaus */
+  display: inline-block; /* Estää alleviivauksen venymisen */
+}
+
+#about h3 {
+  font-size: 1.8rem;
+  color: #333; /* Musta väri */
+  margin-bottom: 1rem;
+}
+
+#about p {
+  font-size: 1rem;
+  line-height: 1.6; /* Riviväli */
+  color: #666; /* Harmaa teksti */
+}
