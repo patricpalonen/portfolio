@@ -4,22 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
+    <!-- Linkitetään tyylitiedosto -->
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
-
 </head>
 <body>
-    <!-- Navigointipalkki -->
-    <nav>
-        <div class="navbar">
-            <div class="logo"><a href="#">Portfolio.</a></div>
-            <ul class="menu">
-                <li><a href="#home">Aloitussivu</a></li>
-                <li><a href="#skills">Osaaminen</a></li>
-                <li><a href="#contact">Yhteystiedot</a></li>
-                <li><a href="#downloads">Ladattavat</a></li>
-            </ul>
+     <!-- Navigaatiopalkki -->
+     <nav>
+        <div class="logo">Portfolio.</div>
+        <ul>
+            <li><a href="#hero">Aloitussivu</a></li>
+            <li><a href="#about">Esittely</a></li>
+            <li><a href="#skills">Osaaminen</a></li>
+            <li><a href="#contact">Yhteystiedot</a></li>
+            <li><a href="#downloads">Ladattavat</a></li>
+        </ul>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/patricpalonen/" target="_blank" rel="noopener">
+                <img src="images/linkedin-logo.png" alt="LinkedIn" width="24" height="24">
+            </a>
+            <a href="https://github.com/patricpalonen" target="_blank" rel="noopener">
+                <img src="images/github-logo.png" alt="GitHub" width="24" height="24">
+            </a>
         </div>
     </nav>
 
@@ -31,15 +36,22 @@
                 <div class="text-two">I'm Patric Palonen</div>
                 <div class="text-three">Master's student in Information Systems</div>
                 <div class="text-four">At University of Jyväskylä, Finland</div>
+                <div class="cta">
+                    <a href="#contact" class="cta-btn">Hire me</a>
+                </div>
+            </div>
         </div>
-        <div class="cta">
-            <a href="#contact" class="cta-btn">Hire me</a>
+    </section>
+
+    <!-- Esittely-osio -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Tietoja minusta</h2>
+            <p>Tähän kirjoitetaan osio minusta, jossa esittelen vähän itseäni.</p>
         </div>
-    </div>
-</section>
+    </section>
 
-
-    <!-- Osaaminen -->
+    <!-- Osaaminen-osio -->
     <section id="skills" class="skills">
         <div class="container">
             <h2>Osaaminen</h2>
@@ -47,7 +59,7 @@
         </div>
     </section>
 
-    <!-- Yhteystiedot -->
+    <!-- Yhteystiedot-osio -->
     <section id="contact" class="contact">
         <div class="container">
             <h2>Yhteystiedot</h2>
@@ -55,7 +67,7 @@
         </div>
     </section>
 
-    <!-- Ladattavat -->
+    <!-- Ladattavat tiedostot-osio -->
     <section id="downloads" class="downloads">
         <div class="container">
             <h2>Ladattavat tiedostot</h2>

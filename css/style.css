@@ -1,117 +1,157 @@
+/* Fonttien tuonti */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+
 /* Värit määritelty muuttujina */
 :root {
-    --primary-color: #4070f4;
-    --text-color: #0E2431;
-    --background-color: #f4f4f9;
-    --section-background-color: #F0F8FF;
-    --link-hover-color: #2851a3;
-  }
-  
-  /* Yleiset tyylit */
-  body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Ubuntu', sans-serif;
-    color: var(--text-color);
-  }
-  
-  p {
-    margin: 0 0 1.5rem;
-  }
-  
-  /* Navigaatiopalkki */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: #4070f4; /* Sininen tausta */
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    transition: background-color 0.3s ease;
+    --primary-color: #4070f4; /* Sininen tausta */
+    --secondary-color: #ffffff; /* Valkoinen teksti */
+    --text-color: #0E2431; /* Tumma teksti */
+    --background-color: #f4f4f9; /* Kevyt taustaväri */
+    --section-background: #e7f3ff; /* Kevyt sininen */
+    --hover-color: #365899; /* Hover-efekti */
 }
 
-nav.scrolled {
-    background-color: #ffffff; /* Valkoinen tausta skrollatessa */
-}
-
-nav .logo {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #ffffff; /* Valkoinen teksti */
-    transition: color 0.3s ease;
-}
-
-nav.scrolled .logo {
-    color: #4267b2; /* Sininen teksti skrollatessa */
-}
-
-nav ul {
-    display: flex;
-    gap: 1.5rem;
-    list-style: none;
-    margin: 0;
-}
-
-nav ul li {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1rem;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #ffffff; /* Valkoinen teksti */
-    transition: color 0.3s ease;
-}
-
-nav.scrolled ul li a {
-    color: #4267b2; /* Sininen teksti skrollatessa */
-}
-
-/* Navigaatiopalkin säätö */
+/* Perustyylit */
 body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.6;
 }
 
-section {
-    padding: 2rem;
+/* Navigaatiopalkki */
+nav {
+  display: flex;
+  justify-content: space-between; /* Sijoittaa logon vasemmalle ja linkit/logot oikealle */
+  align-items: center; /* Keskittää pystysuunnassa */
+  padding: 1rem 2rem; /* Lisää horisontaalista tyhjää tilaa */
+  background-color: var(--primary-color); /* Pääväri */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
 }
 
+nav.scrolled {
+  background-color: var(--secondary-color); /* Scrollauksen jälkeen vaihtuva väri */
+}
+
+nav .logo {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+  transition: color 0.3s ease;
+}
+
+nav.scrolled .logo {
+  color: var(--primary-color);
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem; /* Lisää väliä linkkien väliin */
+  list-style: none; /* Poistaa listapisteet */
+  margin: 0;
+  padding: 0;
+  justify-content: center; /* Keskittää linkit */
+  flex: 1; /* Tasoittaa tilan vasemmalle ja oikealle */
+}
+
+nav ul li {
+  font-size: 1rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  transition: color 0.3s ease;
+}
+
+nav.scrolled ul li a {
+  color: var(--primary-color);
+}
+
+/* Social links */
+nav .social-links {
+  display: flex;
+  gap: 1rem; /* Väli logojen välillä */
+}
+
+nav .social-links img {
+  width: 24px; /* Logon koko */
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+nav .social-links img:hover {
+  transform: scale(1.1); /* Suurentaa logoa hoverin aikana */
+}
+
+/* Hero-osio */
 .hero {
-    text-align: center;
-    padding: 5rem 2rem;
-    background-color: #e7f3ff; /* Kevyt sininen */
-    color: #333;
+  display: flex;
+  align-items: center; /* Keskittää sisällön pystysuunnassa */
+  justify-content: flex-start; /* Asettaa tekstin vasemmalle vaakasuunnassa */
+  padding: 5rem 2rem;
+  background: url("../images/background_with_selfie.png") no-repeat center right; /* Taustakuva oikealle */
+  background-size: contain; /* Pitää kuvan mittasuhteet oikeina */
+  color: var(--text-color);
+  height: 100vh; /* Asettaa korkeuden koko näkymän korkuiseksi */
 }
 
-.hero h1 {
-    font-size: 2.5rem;
+.hero .text {
+  max-width: 600px; /* Tekstin leveys */
+  margin: 0 auto;
+  text-align: left;
+  background-color: rgba(255, 255, 255, 0.8); /* Hieman läpinäkyvä tausta tekstille */
+  padding: 1rem; /* Tekstin sisämarginaalit */
+  border-radius: 10px; /* Pyöristetyt reunat tekstilaatikkoon */
+}
+
+.hero img {
+  max-width: 400px; /* Varmistaa, että kuva ei kasva liian suureksi */
+  height: auto; /* Pitää kuvasuhteen oikeana */
+  margin-left: 2rem; /* Lisää tilaa tekstin ja kuvan väliin */
+}
+
+.hero .text-one {
+    font-size: 1.5rem; /* Hiukan pienennetty Hello-teksti */
+    line-height: 1.4; /* Riviväli säädetty */
+    font-family: 'Ubuntu', sans-serif;
+    margin-bottom: 0.1rem;
+}
+
+.hero .text-two {
+    font-size: 3.5rem;
+    line-height: 1.3; /* Tasapainoinen riviväli */
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.hero .text-three {
+    font-size: 2.0rem;
+    line-height: 1.5; /* Sama riviväli molemmille */
+    font-family: 'Ubuntu', sans-serif;
+    color: var(--primary-color);
+    margin-bottom: 0.2rem;
+}
+
+.hero .text-four {
+    font-size: 1.5rem;
+    line-height: 1.5; /* Sama riviväli molemmille */
+    font-family: 'Ubuntu', sans-serif;
+    color: var(--text-color);
     margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.2rem;
-}
-
-.hero .cta {
-    margin-top: 1.5rem;
 }
 
 .hero .cta a {
     text-decoration: none;
-    background-color: #4267b2;
-    color: #ffffff;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     padding: 0.75rem 1.5rem;
     border-radius: 5px;
     font-size: 1rem;
@@ -119,51 +159,5 @@ section {
 }
 
 .hero .cta a:hover {
-    background-color: #365899;
+    background-color: var(--hover-color);
 }
-  
-  /* Osiot */
-  section {
-    padding: 2rem;
-    margin: 1rem 0;
-    background-color: var(--section-background-color);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  section h2 {
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-  
-  /* Painikkeet */
-  button {
-    background-color: var(--primary-color);
-    color: #fff;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: var(--link-hover-color);
-  }
-  
-  /* Responsiivisuus */
-  @media (max-width: 768px) {
-    nav {
-      flex-direction: column;
-    }
-  
-    nav a {
-      margin: 0.5rem 0;
-    }
-  
-    section {
-      padding: 1rem;
-    }
-  }
-  
