@@ -1,0 +1,295 @@
+/* Fonttien tuonti */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+
+/* Värit määritelty muuttujina */
+:root {
+    --primary-color: #4070f4; /* Sininen tausta */
+    --secondary-color: #ffffff; /* Valkoinen teksti */
+    --text-color: #0E2431; /* Tumma teksti */
+    --background-color: #f4f4f9; /* Kevyt taustaväri */
+    --section-background: #e7f3ff; /* Kevyt sininen */
+    --hover-color: #365899; /* Hover-efekti */
+}
+
+/* Perustyylit */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Globaalit H2-otsikoiden tyylit */
+h2 {
+  font-size: 2rem; /* Otsikon fonttikoko */
+  font-weight: bold;
+  color: #333; /* Musta väri */
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 1rem; /* Välit otsikon ja muun sisällön välillä */
+  border-bottom: 2px double #4070f4; /* Alleviivaus */
+  display: inline-block; /* Estää alleviivauksen venymisen */
+  text-align: center; /* Keskittää otsikon */
+  
+}
+
+
+/* Navigaatiopalkki */
+nav {
+  display: flex;
+  justify-content: space-between; /* Sijoittaa logon vasemmalle ja linkit/logot oikealle */
+  align-items: center; /* Keskittää pystysuunnassa */
+  padding: 1rem 2rem; /* Lisää horisontaalista tyhjää tilaa */
+  background-color: var(--primary-color); /* Pääväri */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+nav.scrolled {
+  background-color: var(--secondary-color); /* Scrollauksen jälkeen vaihtuva väri */
+}
+
+nav .logo {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+  transition: color 0.3s ease;
+}
+
+nav.scrolled .logo {
+  color: var(--primary-color);
+}
+
+nav ul {
+  display: flex;
+  gap: 2rem; /* Lisää väliä linkkien väliin */
+  list-style: none; /* Poistaa listapisteet */
+  margin: 0;
+  padding: 0;
+  justify-content: center; /* Keskittää linkit */
+  flex: 1; /* Tasoittaa tilan vasemmalle ja oikealle */
+}
+
+nav ul li {
+  font-size: 1rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  transition: color 0.3s ease;
+}
+
+nav.scrolled ul li a {
+  color: var(--primary-color);
+}
+
+/* Social links */
+nav .social-links {
+  display: flex;
+  gap: 1rem; /* Väli logojen välillä */
+}
+
+nav .social-links img {
+  width: 24px; /* Logon koko */
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+nav .social-links img:hover {
+  transform: scale(1.1); /* Suurentaa logoa hoverin aikana */
+}
+
+/* Hero-osio */
+.hero {
+  display: flex;
+  align-items: center; /* Keskittää sisällön pystysuunnassa */
+  justify-content: flex-start; /* Asettaa tekstin vasemmalle vaakasuunnassa */
+  padding: 5rem 2rem;
+  background: url("../images/background_with_selfie.png") no-repeat center right; /* Taustakuva oikealle */
+  background-size: contain; /* Pitää kuvan mittasuhteet oikeina */
+  color: var(--text-color);
+  height: 100vh; /* Asettaa korkeuden koko näkymän korkuiseksi */
+}
+
+.hero .text {
+  max-width: 700px; /* Tekstin leveys */
+  margin: 0 auto;
+  text-align: left;
+  background-color: rgba(255, 255, 255, 0.8); /* Hieman läpinäkyvä tausta tekstille */
+  padding: 1rem; /* Tekstin sisämarginaalit */
+  border-radius: 10px; /* Pyöristetyt reunat tekstilaatikkoon */
+}
+
+.hero img {
+  max-width: 400px; /* Varmistaa, että kuva ei kasva liian suureksi */
+  height: auto; /* Pitää kuvasuhteen oikeana */
+  margin-left: 2rem; /* Lisää tilaa tekstin ja kuvan väliin */
+}
+
+.hero .text-one {
+    font-size: 1.8rem; /* Hiukan pienennetty Hello-teksti */
+    line-height: 1.3; /* Riviväli säädetty */
+    font-family: 'Ubuntu', sans-serif;
+    margin-bottom: 0.1rem;
+}
+
+.hero .text-two {
+    font-size: 3.5rem;
+    line-height: 1.3; /* Tasapainoinen riviväli */
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+}
+
+.hero .text-three {
+    font-size: 2.2rem;
+    line-height: 1.3; /* Sama riviväli molemmille */
+    font-family: 'Ubuntu', sans-serif;
+    color: var(--primary-color);
+    margin-bottom: 0.2rem;
+}
+
+.hero .text-four {
+    font-size: 1.8rem;
+    line-height: 1.3; /* Sama riviväli molemmille */
+    font-family: 'Ubuntu', sans-serif;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.hero .cta a {
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.hero .cta a:hover {
+    background-color: var(--hover-color);
+}
+
+/* Esittely-osio */
+#about {
+  display: flex; /* Kuva ja teksti vierekkäin */
+  align-items: center; /* Tasoitetaan pystysuunnassa */
+  justify-content: space-between; /* Tasataan sisältö vaakasuunnassa */
+  padding: 2rem; /* Lisää tyhjää tilaa sisällön ympärille */
+  background-color: var(--section-background); /* Taustan väri */
+  position: relative;
+  margin-top: -5vh;
+  min-height: 50vh; /* Määrittää vähimmäiskorkeudeksi esimerkiksi 50% näkymän korkeudesta */
+}
+
+#about img {
+  max-width: 350px; /* Kuvan maksimi leveys */
+  height: auto; /* Skaalaa kuvan korkeuden suhteessa leveyteen */
+  border-radius: 50%; /* Pyöristetty kuva */
+  margin-right: 2rem; /* Väli kuvaan ja tekstiin */
+}
+
+#about .container {
+  max-width: 70%; /* Tekstin maksimileveys */
+  text-align: left; /* Varmistetaan vasemmalle tasattu teksti */
+}
+
+#about h2 {
+  font-size: 2rem; /* Otsikon fonttikoko */
+  font-weight: bold;
+  color: #333; /* Musta väri */
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 0.5rem;
+  border-bottom: 2px double #4070f4; /* Alleviivaus */
+  display: block; /* Estää alleviivauksen venymisen */
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 3%;
+  transform: translate(-50%, 0);
+  width: max-content;
+}
+
+#about h3 {
+  font-size: 1.8rem;
+  color: #333; /* Musta väri */
+  margin-bottom: 1rem;
+}
+
+#about p {
+  font-size: 1.3rem;
+  line-height: 1.6; /* Riviväli */
+  color: #666; /* Harmaa teksti */
+}
+
+#about {
+  margin-top: -5vh; /* Nosta esittely-osio vähän korkeammalle */
+}
+
+.hero {
+  height: calc(100vh - 10%); /* Vähentää korkeutta hieman */
+}
+
+/* Pystynäytön mukautukset */
+@media (max-aspect-ratio: 1/1) {
+  .hero {
+    height: auto; /* Korkeus mukautuu sisältöön */
+    min-height: 80vh; /* Varmistaa, ettei Hero-osio ole liian matala */
+  }
+}
+
+/* Mediasääntö pystyresoluutiota varten */
+@media screen and (max-width: 768px) {
+  .hero {
+    flex-direction: column; /* Asettaa sisällön pystysuoraan */
+    height: auto; /* Sallii korkeuden mukautumisen sisältöön */
+    padding: 2rem 1rem; /* Vähentää padding-arvoja pienillä näytöillä */
+  }
+
+  .hero .text {
+    margin-bottom: 2rem; /* Lisää väliä tekstin ja muun sisällön väliin */
+  }
+
+  #about {
+    flex-direction: column; /* Kuva ja teksti allekkain */
+    align-items: center; /* Keskittää sisällön */
+    text-align: center; /* Keskittää tekstin */
+    padding: 2rem 1rem; /* Mukauttaa padding-arvot */
+  }
+
+  #about img {
+    margin: 0 0 1rem 0; /* Vähentää kuvan marginaaleja */
+    max-width: 250px; /* Pienentää kuvan maksimikokoa */
+  }
+
+  #about .container {
+    max-width: 100%; /* Käyttää koko leveän tilan */
+  }
+
+}
+@media (max-width: 768px) {
+  .hero {
+    height: auto; /* Anna sisällön määrittää korkeuden */
+    padding: 2rem 1rem; /* Lisää pehmusteet */
+  }
+
+  #about {
+    margin-top: 2rem; /* Tuo esittely-osio näkyviin */
+  }
+}
+
+@media (min-width: 769px) {
+  .hero {
+    height: 75vh; /* Aseta hero-osion korkeudeksi 75% ikkunasta */
+  }
+
+  #about {
+    margin-top: -5vh; /* Nostetaan esittely-osio korkeammalle */
+  }
+}

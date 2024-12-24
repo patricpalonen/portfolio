@@ -1,3 +1,6 @@
+/* ------------------------------
+   FONTIT JA MUUTTUJAT
+------------------------------ */
 /* Fonttien tuonti */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
 
@@ -11,115 +14,185 @@
     --hover-color: #365899; /* Hover-efekti */
 }
 
-/* Perustyylit */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--secondary-color);
-    color: var(--text-color);
-    line-height: 1.6;
+/* ------------------------------
+   YLEISET TYYLIT
+------------------------------ */
+/* Tämä osio sisältää yleisiä tyylimäärittelyjä, jotka vaikuttavat koko verkkosivustoon. */
+
+body { 
+    margin: 0; /* Poistaa oletusmarginaalit kehyksestä, jolloin sivun sisältö alkaa aivan reunasta. */
+    padding: 0; /* Poistaa oletustäytöt kehyksestä, jotta mikään sisältö ei siirry sisäänpäin. */
+    font-family: 'Poppins', sans-serif; /* Asettaa fontiksi 'Poppins' ja varavaihtoehdoksi sans-serif, jos 'Poppins' ei ole käytettävissä. */
+    background-color: var(--background-color); /* Asettaa sivun taustaväriksi muuttujan '--background-color', joka on määritelty ylemmäksi (vaalea väri). */
+    color: var(--text-color); /* Asettaa tekstin väriksi muuttujan '--text-color', joka on tumma väri. */
+    line-height: 1.6; /* Määrittää riviväliksi 1.6, mikä tekee tekstistä helpommin luettavaa. */
 }
 
-/* Navigaatiopalkki */
+section {
+    position: relative; /* Mahdollistaa lapsielementtien (esim. h2) absoluuttisen sijoittamisen osion sisällä */
+    height: 100vh; /* Asettaa osion korkeudeksi aina koko näytön korkeuden */
+    display: flex; /* Järjestää sisällön */
+    align-items: center; /* Keskittää sisällön pystysuunnassa */
+    justify-content: center; /* Keskittää sisällön vaakasuunnassa */
+}
+
+/* Globaalit otsikkotyylit */
+/* Määrittää yhteiset tyylit kaikille otsikkotasoille (h1 - h6). */
+
+h1, h2, h3, h4, h5, h6 { 
+    margin: 0; /* Poistaa oletusmarginaalit otsikoilta, jolloin niitä hallitaan vain CSS:n kautta. */
+    font-family: 'Ubuntu', sans-serif; /* Asettaa fontiksi 'Ubuntu' ja varavaihtoehdoksi sans-serif, jos 'Ubuntu' ei ole käytettävissä. */
+    text-align: center; /* Keskittää kaikki otsikot vaakasuunnassa sivulle. */
+}
+
+h2 {
+    font-size: 2rem; /* Asettaa otsikkotason h2 fonttikooksi 2rem (suhteellinen mitta, joka mukautuu sivun perusfonttikokoon). */
+    font-weight: bold; /* Tekee h2-otsikoista lihavoidut (paksu fontti). */
+    margin-bottom: 1rem; /* Lisää tilaa h2-otsikon ja sen alapuolisen sisällön väliin. */
+    border-bottom: 2px solid var(--primary-color); /* Lisää h2-otsikon alle viivan, jonka väri tulee '--primary-color'-muuttujasta. */
+}
+
+h3 {
+    font-size: 1.8rem; /* Asettaa h3-otsikon fonttikooksi 1.8rem. */
+    font-weight: 500; /* Tekee h3-otsikoista keskipaksuja (vähemmän lihavoitu kuin h2). */
+    color: var(--text-color); /* Asettaa h3-otsikoiden värin muuttujan '--text-color' mukaiseksi. */
+    margin-bottom: 1rem; /* Lisää tilaa h3-otsikon ja sen alapuolisen sisällön väliin. */
+    text-align: left;
+}
+
+/* ------------------------------
+   OSIOIDEN OTSIKOIDEN KESKITYS
+------------------------------ */
+section h2 {
+    position: absolute; /* Asetetaan absoluuttiseen sijaintiin osion sisällä */
+    top: 10%; /* Sijoitetaan hieman alas yläreunasta */
+    left: 50%; /* Keskitetään vaakasuunnassa */
+    transform: translateX(-50%); /* Korjataan keskipisteen sijainti */
+    text-align: center; /* Keskittää tekstin otsikon sisällä */
+    z-index: 10; /* Nostetaan otsikko muiden elementtien päälle */
+    margin: 0; /* Poistaa marginaalit */
+}
+
+/* ------------------------------
+   NAVIGAATIOPALKKI
+------------------------------ */
 nav {
-  display: flex;
-  justify-content: space-between; /* Sijoittaa logon vasemmalle ja linkit/logot oikealle */
-  align-items: center; /* Keskittää pystysuunnassa */
-  padding: 1rem 2rem; /* Lisää horisontaalista tyhjää tilaa */
-  background-color: var(--primary-color); /* Pääväri */
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  transition: background-color 0.3s ease;
-}
-
-nav.scrolled {
-  background-color: var(--secondary-color); /* Scrollauksen jälkeen vaihtuva väri */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--primary-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 nav .logo {
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--secondary-color);
-  transition: color 0.3s ease;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    transition: color 0.3s ease;
 }
-
-nav.scrolled .logo {
-  color: var(--primary-color);
-}
-
 nav ul {
-  display: flex;
-  gap: 2rem; /* Lisää väliä linkkien väliin */
-  list-style: none; /* Poistaa listapisteet */
-  margin: 0;
-  padding: 0;
-  justify-content: center; /* Keskittää linkit */
-  flex: 1; /* Tasoittaa tilan vasemmalle ja oikealle */
-}
-
-nav ul li {
-  font-size: 1rem;
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li a {
-  text-decoration: none;
-  color: var(--secondary-color);
-  transition: color 0.3s ease;
-}
-
-nav.scrolled ul li a {
-  color: var(--primary-color);
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-size: 1rem;
 }
 
 /* Social links */
 nav .social-links {
-  display: flex;
-  gap: 1rem; /* Väli logojen välillä */
+    display: flex;
+    gap: 1rem; /* Väli logojen välillä */
+  }
+  
+  nav .social-links img {
+    width: 24px; /* Logon koko */
+    height: 24px;
+    transition: transform 0.3s ease;
+  }
+  
+  nav .social-links img:hover {
+    transform: scale(1.1); /* Suurentaa logoa hoverin aikana */
+  }
+
+/* ------------------------------
+   DOTS-NAVIGAATIO
+------------------------------ */
+/* Navigointipisteiden tyylit */
+nav.dots {
+    position: fixed; /* Kiinnitetään oikeaan reunaan */
+    right: 15px; /* Etäisyys oikeasta reunasta */
+    top: 50%; /* Keskitetään pystysuunnassa */
+    transform: translateY(-50%); /* Korjataan keskipisteeseen */
+    display: flex; /* Järjestetään pisteet pystysuunnassa */
+    flex-direction: column; /* Pisteet ovat pystysarakkeessa */
+    gap: 15px; /* Väli pisteiden välillä */
+    background-color: rgba(0, 0, 0, 0.1); /* Läpikuultava tausta */
+    padding: 10px; /* Sisennys taustan sisälle */
+    border-radius: 10px; /* Pyöristetyt kulmat */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Kevyt varjo */
 }
 
-nav .social-links img {
-  width: 24px; /* Logon koko */
-  height: 24px;
-  transition: transform 0.3s ease;
+nav.dots a {
+    width: 12px; /* Pisteen leveys */
+    height: 12px; /* Pisteen korkeus */
+    background-color: rgba(255, 255, 255, 0.7); /* Läpikuultava valkoinen */
+    border: 2px solid rgba(255, 255, 255, 0.9); /* Kevyt reunus */
+    border-radius: 50%; /* Pyöreät pisteet */
+    display: block; /* Piste näkyy lohkona */
+    transition: all 0.3s ease; /* Sulava muutos hover-tilaan */
 }
 
-nav .social-links img:hover {
-  transform: scale(1.1); /* Suurentaa logoa hoverin aikana */
+nav.dots a:hover {
+    background-color: var(--primary-color); /* Vaihda väri hover-tilassa */
+    transform: scale(1.3); /* Suurenna hover-tilassa */
 }
 
-/* Hero-osio */
+nav.dots a.active {
+    background-color: var(--primary-color); /* Korosta aktiivista pistettä */
+    box-shadow: 0 0 10px var(--secondary-color); /* Hehkuva efekti */
+}
+
+/* ------------------------------
+   HERO-OSIO
+------------------------------ */
 .hero {
-  display: flex;
-  align-items: center; /* Keskittää sisällön pystysuunnassa */
-  justify-content: flex-start; /* Asettaa tekstin vasemmalle vaakasuunnassa */
-  padding: 5rem 2rem;
-  background: url("../images/background_with_selfie.png") no-repeat center right; /* Taustakuva oikealle */
-  background-size: contain; /* Pitää kuvan mittasuhteet oikeina */
-  color: var(--text-color);
-  height: 100vh; /* Asettaa korkeuden koko näkymän korkuiseksi */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5rem 2rem;
+    background: url("../images/background_with_selfie.png") no-repeat center right;
+    background-size: contain;
+    height: 100vh;
 }
 
 .hero .text {
-  max-width: 600px; /* Tekstin leveys */
-  margin: 0 auto;
-  text-align: left;
-  background-color: rgba(255, 255, 255, 0.8); /* Hieman läpinäkyvä tausta tekstille */
-  padding: 1rem; /* Tekstin sisämarginaalit */
-  border-radius: 10px; /* Pyöristetyt reunat tekstilaatikkoon */
-}
+    max-width: 700px; /* Tekstin leveys */
+    margin: 0 auto;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.8); /* Hieman läpinäkyvä tausta tekstille */
+    padding: 1rem; /* Tekstin sisämarginaalit */
+    border-radius: 10px; /* Pyöristetyt reunat tekstilaatikkoon */
+  }
 
-.hero img {
-  max-width: 400px; /* Varmistaa, että kuva ei kasva liian suureksi */
-  height: auto; /* Pitää kuvasuhteen oikeana */
-  margin-left: 2rem; /* Lisää tilaa tekstin ja kuvan väliin */
-}
+  .hero img {
+    max-width: 400px; /* Varmistaa, että kuva ei kasva liian suureksi */
+    height: auto; /* Pitää kuvasuhteen oikeana */
+    margin-left: 2rem; /* Lisää tilaa tekstin ja kuvan väliin */
+  }
 
-.hero .text-one {
-    font-size: 1.5rem; /* Hiukan pienennetty Hello-teksti */
-    line-height: 1.4; /* Riviväli säädetty */
+  .hero .text-one {
+    font-size: 1.8rem; /* Hiukan pienennetty Hello-teksti */
+    line-height: 1.3; /* Riviväli säädetty */
     font-family: 'Ubuntu', sans-serif;
     margin-bottom: 0.1rem;
 }
@@ -133,16 +206,16 @@ nav .social-links img:hover {
 }
 
 .hero .text-three {
-    font-size: 2.0rem;
-    line-height: 1.5; /* Sama riviväli molemmille */
+    font-size: 2.2rem;
+    line-height: 1.3; /* Sama riviväli molemmille */
     font-family: 'Ubuntu', sans-serif;
     color: var(--primary-color);
     margin-bottom: 0.2rem;
 }
 
 .hero .text-four {
-    font-size: 1.5rem;
-    line-height: 1.5; /* Sama riviväli molemmille */
+    font-size: 1.8rem;
+    line-height: 1.3; /* Sama riviväli molemmille */
     font-family: 'Ubuntu', sans-serif;
     color: var(--text-color);
     margin-bottom: 1rem;
@@ -162,45 +235,198 @@ nav .social-links img:hover {
     background-color: var(--hover-color);
 }
 
-/* Esittely-osio */
+/* ------------------------------
+   ESITTELY-OSIO
+------------------------------ */
 #about {
-  display: flex; /* Kuva ja teksti vierekkäin */
-  align-items: center; /* Tasoitetaan pystysuunnassa */
-  justify-content: space-between; /* Tasataan sisältö vaakasuunnassa */
-  padding: 2rem; /* Lisää tyhjää tilaa sisällön ympärille */
-  background-color: var(--section-background); /* Taustan väri */
+    display: flex; /* Asettaa osion sisällön joustavaksi (flexbox), mikä mahdollistaa elementtien helpon asettelun riville tai sarakkeeseen. */
+    align-items: center; /* Keskittää sisällön pystysuunnassa osion keskelle. */
+    justify-content: flex-start; /* Kohdistaa sisällön vasemmalle, jolloin kuva ja teksti ovat lähempänä toisiaan. */
+    gap: 3rem; /* Lisää väliä kuvan ja tekstikentän väliin. */
+    padding: 3rem 4rem; /* Lisää tyhjää tilaa osion reunoille (3rem ylös/alas, 4rem sivuille). */
+    background-color: var(--section-background); /* Asettaa taustaväriksi muuttujan '--section-background', jonka väri voi olla määritelty ylemmäksi. */
+    min-height: 100vh; /* Määrittää osion vähimmäiskorkeudeksi puolet näkyvän ruudun korkeudesta. */
 }
 
 #about img {
-  max-width: 350px; /* Kuvan maksimi leveys */
-  height: auto; /* Skaalaa kuvan korkeuden suhteessa leveyteen */
-  border-radius: 50%; /* Pyöristetty kuva */
-  margin-right: 2rem; /* Väli kuvaan ja tekstiin */
+    max-width: 400px; /* Rajaa kuvan leveyden enintään 350 pikseliin, jotta se ei kasva liian suureksi. */
+    height: auto; /* Skaalaa kuvan korkeuden suhteessa leveyteen */
+    border-radius: 50%; /* Tekee kuvasta pyöreän, koska rajaa kulmat täydellisesti ympyräksi. */
+    margin-right: 10rem; /* Väli kuvaan ja tekstiin */
 }
 
 #about .container {
-  max-width: 70%; /* Tekstin maksimileveys */
-  text-align: left; /* Varmistetaan vasemmalle tasattu teksti */
+    max-width: 65%; /* Rajoittaa tekstisäiliön leveyden enintään 65 %:iin osion leveydestä. */
+    text-align: left; /* Kohdistaa tekstin vasemmalle, jotta se näyttää luonnolliselta luettavuuden kannalta. */
+    margin-right: 3rem; /* Lisää marginaalia oikealle puolelle, jotta teksti ei jää pistenavigoinnin alle. */
 }
 
 #about h2 {
-  font-size: 2rem; /* Otsikon fonttikoko */
-  font-weight: bold;
-  color: #333; /* Musta väri */
-  font-family: 'Poppins', sans-serif;
-  margin-bottom: 0.5rem;
-  border-bottom: 2px solid #4070f4; /* Alleviivaus */
-  display: inline-block; /* Estää alleviivauksen venymisen */
-}
-
-#about h3 {
-  font-size: 1.8rem;
-  color: #333; /* Musta väri */
-  margin-bottom: 1rem;
+    font-size: 2rem; /* Asettaa otsikon fonttikooksi 2 rem yksikköä, joka mukautuu käyttäjän perustekstin kokoon. */
+    color: var(--text-color); /* Asettaa otsikon väriksi muuttujan '--text-color', jonka väri on määritelty ylemmäksi. */
+    margin-bottom: 1rem; /* Lisää tilaa (1 rem yksikköä) otsikon ja sen alapuolisen sisällön väliin. */
 }
 
 #about p {
-  font-size: 1rem;
-  line-height: 1.6; /* Riviväli */
-  color: #666; /* Harmaa teksti */
+    font-size: 1.3rem;
+    line-height: 1.6; /* Riviväli */
+    color: #666; /* Harmaa teksti */
+  }
+
+/* ------------------------------
+   TULEVAISUUDEN TAVOITTEET
+------------------------------ */
+#future-goals {
+    background-color: var(--background-color); /* Asettaa osion taustaväriksi määritellyn värin */
+    padding: 3rem 0; /* Lisää tilaa ylä- ja alareunaan */
+    text-align: center; /* Keskittää osion sisällön */
+}
+
+#future-goals h2 {
+    font-size: 2.5rem; /* Otsikon fonttikoko */
+    color: var(--text-color); /* Otsikon tekstiväri */
+    margin-bottom: 2rem; /* Lisää tilaa otsikon ja aikajanan väliin */
+    text-align: center; /* Keskittää otsikon */
+}
+
+.timeline {
+    display: flex; /* Järjestää aikajanan pisteet vaakasuoraan riviin */
+    justify-content: space-between; /* Jakaa pisteet tasaisesti */
+    align-items: flex-end; /* Kohdistaa pisteet alaosaan */
+    position: relative; /* Mahdollistaa pseudo-elementtien asettelun suhteessa tähän */
+    padding: 2rem 0; /* Lisää tilaa aikajanan ympärille */
+    overflow: hidden; /* Estää sisällön ylivuodon */
+    width: 100%; /* Aikajanan leveys */
+}
+
+.timeline::before {
+    content: ''; /* Luo visuaalisen viivan */
+    position: absolute; /* Asettaa viivan aikajanan sisään */
+    height: 4px; /* Viivan paksuus */
+    background-color: var(--primary-color); /* Viivan väri */
+    top: 50%; /* Keskittää viivan pystysuunnassa */
+    left: 0; /* Viivan alku vasemmalla */
+    right: 0; /* Viivan loppu oikealla */
+    z-index: 1; /* Nostaa viivan muiden elementtien päälle */
+}
+
+.timeline-item {
+    position: relative; /* Mahdollistaa sisältöjen asettelun suhteessa tähän */
+    flex: 1; /* Joustava leveys */
+    text-align: center; /* Keskittää tekstin ja ikonit */
+    z-index: 2; /* Nostaa pisteet viivan yläpuolelle */
+    cursor: pointer; /* Muuttaa kursorin osoittavaksi */
+}
+
+.timeline-item.active::after {
+    background-color: var(--primary-color); /* Korostaa aktiivista pistettä */
+    transform: scale(1.3); /* Suurentaa aktiivista pistettä */
+}
+
+.timeline-item::after {
+    content: ''; /* Luo ympyrän jokaisen pisteen kohdalle */
+    position: absolute; /* Asettaa ympyrän suhteessa aikajanan pisteisiin */
+    width: 16px; /* Ympyrän leveys */
+    height: 16px; /* Ympyrän korkeus */
+    background-color: var(--section-background); /* Ympyrän taustaväri */
+    border: 3px solid var(--primary-color); /* Ympyrän reunaväri */
+    border-radius: 50%; /* Pyöristää reunat ympyräksi */
+    top: calc(50% - 2px); /* Asettaa ympyrän tarkasti viivan keskelle */
+    left: 50%; /* Keskittää ympyrän vaakasuunnassa */
+    transform: translate(-50%, -50%); /* Korjaa ympyrän sijaintia */
+    z-index: 3; /* Nostaa ympyrän viivan päälle */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Lisää animaation */
+}
+
+.timeline-content {
+    position: absolute; /* Asettaa sisällön suhteessa pisteeseen */
+    top: auto; /* Estää yläreunan automaattisen sijoittelun */
+    bottom: calc(100% + 10px); /* Asettaa sisällön pisteen yläpuolelle */
+    left: 50%; /* Keskittää sisällön vaakasuunnassa */
+    transform: translateX(-50%); /* Korjaa sijaintia vaakasuunnassa */
+    background-color: white; /* Sisällön taustaväri */
+    border-radius: 8px; /* Pyöristää kulmat */
+    padding: 1rem 1.5rem; /* Lisää tilaa sisällön ympärille */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Lisää varjon */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Animaatio siirtymiselle */
+    opacity: 0; /* Piilottaa sisällön oletuksena */
+    visibility: hidden; /* Estää näkymisen ruudulla */
+}
+
+.timeline-item:hover .timeline-content,
+.timeline-item.active .timeline-content {
+    opacity: 1; /* Näyttää sisällön hoverilla tai aktiivisena */
+    visibility: visible; /* Varmistaa näkyvyyden */
+    transform: translate(-50%, -20px); /* Siirtää sisältöä hieman ylös */
+}
+
+.timeline-content h3 {
+    font-size: 1.2rem; /* Sisällön otsikon fonttikoko */
+    margin-bottom: 0.5rem; /* Lisää tilaa otsikon ja tekstin väliin */
+    color: var(--text-color); /* Otsikon väri */
+}
+
+.timeline-content p {
+    font-size: 0.9rem; /* Sisällön tekstin koko */
+    color: gray; /* Tekstin väri */
+}
+
+.timeline-content .hexagon {
+    width: 50px; /* Hexagonin leveys */
+    height: 28.87px; /* Hexagonin korkeus */
+    background-color: var(--primary-color); /* Hexagonin taustaväri */
+    position: relative; /* Mahdollistaa pseudo-elementtien sijoittelun */
+    margin: 0.5rem auto; /* Keskittää hexagonin */
+}
+
+.timeline-content i {
+    font-size: 1.5rem; /* Ikonin koko */
+    color: white; /* Ikonin väri */
+    position: absolute; /* Keskittää ikonin hexagonin sisällä */
+    top: 50%; /* Keskittää pystysuunnassa */
+    left: 50%; /* Keskittää vaakasuunnassa */
+    transform: translate(-50%, -50%); /* Korjaa ikonin sijaintia */
+}
+
+.timeline-content .hexagon::before,
+.timeline-content .hexagon::after {
+    content: ""; /* Luo hexagonin ylä- ja alapuolen */
+    position: absolute; /* Asettaa ylä- ja alapuolen suhteessa hexagoniin */
+    width: 0; /* Piilottaa leveän osan */
+    border-left: 25px solid transparent; /* Luo vinot reunat */
+    border-right: 25px solid transparent; /* Luo vinot reunat */
+}
+
+.timeline-content .hexagon::before {
+    bottom: 100%; /* Asettaa yläosan */
+    border-bottom: 14.43px solid var(--primary-color); /* Yläosan väri */
+}
+
+.timeline-content .hexagon::after {
+    top: 100%; /* Asettaa alaosan */
+    border-top: 14.43px solid var(--primary-color); /* Alaosan väri */
+}
+
+/* ------------------------------
+   MEDIASÄÄNNÖT
+------------------------------ */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        height: auto;
+        padding: 2rem;
+    }
+
+    #about {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    #about img {
+        margin-bottom: 1rem;
+    }
+
+    #about .container {
+        max-width: 100%;
+    }
 }
