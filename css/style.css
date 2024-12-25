@@ -277,134 +277,51 @@ nav.dots a.active {
    TULEVAISUUDEN TAVOITTEET
 ------------------------------ */
 #future-goals {
-    background-color: var(--background-color); /* Asettaa osion taustaväriksi määritellyn värin */
-    padding: 3rem 0; /* Lisää tilaa ylä- ja alareunaan */
-    text-align: center; /* Keskittää osion sisällön */
+    background-color: #f9f9f9;
+    padding: 2rem 0;
+    text-align: center;
 }
 
 #future-goals h2 {
-    font-size: 2.5rem; /* Otsikon fonttikoko */
-    color: var(--text-color); /* Otsikon tekstiväri */
-    margin-bottom: 2rem; /* Lisää tilaa otsikon ja aikajanan väliin */
-    text-align: center; /* Keskittää otsikon */
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #333;
 }
 
 .timeline {
-    display: flex; /* Järjestää aikajanan pisteet vaakasuoraan riviin */
-    justify-content: space-between; /* Jakaa pisteet tasaisesti */
-    align-items: flex-end; /* Kohdistaa pisteet alaosaan */
-    position: relative; /* Mahdollistaa pseudo-elementtien asettelun suhteessa tähän */
-    padding: 2rem 0; /* Lisää tilaa aikajanan ympärille */
-    overflow: hidden; /* Estää sisällön ylivuodon */
-    width: 100%; /* Aikajanan leveys */
-}
-
-.timeline::before {
-    content: ''; /* Luo visuaalisen viivan */
-    position: absolute; /* Asettaa viivan aikajanan sisään */
-    height: 4px; /* Viivan paksuus */
-    background-color: var(--primary-color); /* Viivan väri */
-    top: 50%; /* Keskittää viivan pystysuunnassa */
-    left: 0; /* Viivan alku vasemmalla */
-    right: 0; /* Viivan loppu oikealla */
-    z-index: 1; /* Nostaa viivan muiden elementtien päälle */
+    display: flex; /* Aikajana vaakasuoraan */
+    gap: 2rem; /* Väli elementtien välillä */
+    justify-content: space-between; /* Jakaa tasaisesti */
+    align-items: center; /* Kohdistaa pystysuunnassa */
+    overflow-x: auto; /* Lisää vaakasuuntaisen vierityksen, jos tarvitaan */
+    padding: 1rem;
 }
 
 .timeline-item {
-    position: relative; /* Mahdollistaa sisältöjen asettelun suhteessa tähän */
-    flex: 1; /* Joustava leveys */
-    text-align: center; /* Keskittää tekstin ja ikonit */
-    z-index: 2; /* Nostaa pisteet viivan yläpuolelle */
-    cursor: pointer; /* Muuttaa kursorin osoittavaksi */
+    background-color: white;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    min-width: 150px; /* Vähimmäisleveys */
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.timeline-item.active::after {
-    background-color: var(--primary-color); /* Korostaa aktiivista pistettä */
-    transform: scale(1.3); /* Suurentaa aktiivista pistettä */
+.timeline-item h3 {
+    font-size: 1.5rem;
+    color: #007bff; /* Korosteväri */
+    margin-bottom: 0.5rem;
 }
 
-.timeline-item::after {
-    content: ''; /* Luo ympyrän jokaisen pisteen kohdalle */
-    position: absolute; /* Asettaa ympyrän suhteessa aikajanan pisteisiin */
-    width: 16px; /* Ympyrän leveys */
-    height: 16px; /* Ympyrän korkeus */
-    background-color: var(--section-background); /* Ympyrän taustaväri */
-    border: 3px solid var(--primary-color); /* Ympyrän reunaväri */
-    border-radius: 50%; /* Pyöristää reunat ympyräksi */
-    top: calc(50% - 2px); /* Asettaa ympyrän tarkasti viivan keskelle */
-    left: 50%; /* Keskittää ympyrän vaakasuunnassa */
-    transform: translate(-50%, -50%); /* Korjaa ympyrän sijaintia */
-    z-index: 3; /* Nostaa ympyrän viivan päälle */
-    transition: transform 0.3s ease, background-color 0.3s ease; /* Lisää animaation */
+.timeline-item h4 {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
 }
 
-.timeline-content {
-    position: absolute; /* Asettaa sisällön suhteessa pisteeseen */
-    top: auto; /* Estää yläreunan automaattisen sijoittelun */
-    bottom: calc(100% + 10px); /* Asettaa sisällön pisteen yläpuolelle */
-    left: 50%; /* Keskittää sisällön vaakasuunnassa */
-    transform: translateX(-50%); /* Korjaa sijaintia vaakasuunnassa */
-    background-color: white; /* Sisällön taustaväri */
-    border-radius: 8px; /* Pyöristää kulmat */
-    padding: 1rem 1.5rem; /* Lisää tilaa sisällön ympärille */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Lisää varjon */
-    transition: opacity 0.3s ease, transform 0.3s ease; /* Animaatio siirtymiselle */
-    opacity: 0; /* Piilottaa sisällön oletuksena */
-    visibility: hidden; /* Estää näkymisen ruudulla */
-}
-
-.timeline-item:hover .timeline-content,
-.timeline-item.active .timeline-content {
-    opacity: 1; /* Näyttää sisällön hoverilla tai aktiivisena */
-    visibility: visible; /* Varmistaa näkyvyyden */
-    transform: translate(-50%, -20px); /* Siirtää sisältöä hieman ylös */
-}
-
-.timeline-content h3 {
-    font-size: 1.2rem; /* Sisällön otsikon fonttikoko */
-    margin-bottom: 0.5rem; /* Lisää tilaa otsikon ja tekstin väliin */
-    color: var(--text-color); /* Otsikon väri */
-}
-
-.timeline-content p {
-    font-size: 0.9rem; /* Sisällön tekstin koko */
-    color: gray; /* Tekstin väri */
-}
-
-.timeline-content .hexagon {
-    width: 50px; /* Hexagonin leveys */
-    height: 28.87px; /* Hexagonin korkeus */
-    background-color: var(--primary-color); /* Hexagonin taustaväri */
-    position: relative; /* Mahdollistaa pseudo-elementtien sijoittelun */
-    margin: 0.5rem auto; /* Keskittää hexagonin */
-}
-
-.timeline-content i {
-    font-size: 1.5rem; /* Ikonin koko */
-    color: white; /* Ikonin väri */
-    position: absolute; /* Keskittää ikonin hexagonin sisällä */
-    top: 50%; /* Keskittää pystysuunnassa */
-    left: 50%; /* Keskittää vaakasuunnassa */
-    transform: translate(-50%, -50%); /* Korjaa ikonin sijaintia */
-}
-
-.timeline-content .hexagon::before,
-.timeline-content .hexagon::after {
-    content: ""; /* Luo hexagonin ylä- ja alapuolen */
-    position: absolute; /* Asettaa ylä- ja alapuolen suhteessa hexagoniin */
-    width: 0; /* Piilottaa leveän osan */
-    border-left: 25px solid transparent; /* Luo vinot reunat */
-    border-right: 25px solid transparent; /* Luo vinot reunat */
-}
-
-.timeline-content .hexagon::before {
-    bottom: 100%; /* Asettaa yläosan */
-    border-bottom: 14.43px solid var(--primary-color); /* Yläosan väri */
-}
-
-.timeline-content .hexagon::after {
-    top: 100%; /* Asettaa alaosan */
-    border-top: 14.43px solid var(--primary-color); /* Alaosan väri */
+.timeline-item p {
+    font-size: 1rem;
+    color: #555;
 }
 
 /* ------------------------------

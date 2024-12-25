@@ -42,7 +42,7 @@ document.addEventListener('scroll', () => {
 // Valitaan kaikki aikajanan elementit
 const timelineItems = document.querySelectorAll("#future-goals .timeline-item");
 
-// Lisätään event listener hoverille ja klikkaukselle
+// Lisätään tapahtumankuuntelija hoverille
 timelineItems.forEach((item) => {
     // Hover-efekti
     item.addEventListener("mouseenter", () => {
@@ -52,31 +52,6 @@ timelineItems.forEach((item) => {
         // Lisätään "active"-luokka kohteeseen
         item.classList.add("active");
     });
-
-    // Klikkauksen yhteydessä lisätoimintoja (esimerkiksi navigointi)
-    item.addEventListener("click", () => {
-        const content = item.querySelector(".timeline-content");
-        if (content) {
-            content.classList.toggle("visible");
-        }
-    });
 });
 
-// Responsiivisuus: Tehdään aikajana responsiiviseksi skrollauksen kanssa
-const timelineContainer = document.querySelector("#future-goals .timeline");
-let isScrolling = false;
-
-timelineContainer.addEventListener("wheel", (event) => {
-    event.preventDefault();
-    if (!isScrolling) {
-        isScrolling = true;
-        if (event.deltaY > 0) {
-            // Scrollaa oikealle
-            timelineContainer.scrollBy({ left: 300, behavior: "smooth" });
-        } else {
-            // Scrollaa vasemmalle
-            timelineContainer.scrollBy({ left: -300, behavior: "smooth" });
-        }
-        setTimeout(() => (isScrolling = false), 500);
-    }
-});
+// Responsiivisuuden vierityslogiikka poistettu
