@@ -445,6 +445,60 @@ nav.dots a.active {
 }
 
 /* ------------------------------
+   TEKNOLOGIAT JA OHJELMISTOT - OSIO
+------------------------------ */
+#technologies {
+    background-color: #f9f9f9; /* Taustaväri */
+    padding: 2rem 0; /* Sisätyylitys */
+    text-align: center;
+}
+
+#technologies h2 {
+    font-size: 2rem; /* Otsikon koko */
+    color: var(--text-color); /* Otsikon väri */
+    margin-bottom: 1rem; /* Väli otsikon ja tekstin välillä */
+}
+
+#technologies p {
+    font-size: 1.5rem; /* Kuvauksen teksti */
+    color: #555;
+    margin-bottom: 2rem;
+}
+
+.tag-category {
+    margin-bottom: 2rem; /* Väli kategorioiden välillä */
+}
+
+.tag-category h3 {
+    font-size: 1.2rem; /* Kategorian otsikon koko */
+    color: #555; /* Korosteväri */
+    margin-bottom: 1rem; /* Väli otsikon ja sisältöjen välillä */
+}
+
+.tag-list {
+    display: flex; /* Joustava asettelu */
+    flex-wrap: wrap; /* Rivittää tagit seuraavalle riville tarvittaessa */
+    justify-content: left; /* Keskittää tagit */
+    gap: 0.5rem; /* Väli tagien välillä */
+}
+
+.tag {
+    display: inline-block; /* Inline-tyylinen laatikko */
+    background-color: #007bff; /* Tagin taustaväri */
+    color: #fff; /* Tekstin väri */
+    font-size: 0.9rem; /* Tekstin koko */
+    padding: 0.5rem 1rem; /* Sisätyylitys */
+    border-radius: 20px; /* Pyöristetyt kulmat */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Hover-animaatio */
+}
+
+.tag:hover {
+    background-color: #0056b3; /* Hover-väri */
+    transform: scale(1.1); /* Kasvattaa kokoa hoverilla */
+    cursor: pointer;
+}
+
+/* ------------------------------
    MEDIASÄÄNNÖT
 ------------------------------ */
 @media (max-width: 768px) {
