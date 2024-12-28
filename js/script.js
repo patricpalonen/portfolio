@@ -39,19 +39,23 @@ document.addEventListener('scroll', () => {
     });
 });
 
-// Valitaan kaikki aikajanan elementit
-const timelineItems = document.querySelectorAll("#future-goals .timeline-item");
+// Valitaan kaikki accordion-header-elementit
+const accordionHeaders = document.querySelectorAll("#future-goals .accordion-header");
 
-// Lisätään tapahtumankuuntelija hoverille
-timelineItems.forEach((item) => {
-    // Hover-efekti
-    item.addEventListener("mouseenter", () => {
-        // Poistetaan "active"-luokka kaikista elementeistä
-        timelineItems.forEach((el) => el.classList.remove("active"));
-        
-        // Lisätään "active"-luokka kohteeseen
-        item.classList.add("active");
+// Lisätään tapahtumankuuntelija jokaiselle otsikolle
+accordionHeaders.forEach((header) => {
+    header.addEventListener("click", () => {
+        // Suljetaan kaikki muut aktiiviset osiot
+        const activeHeader = document.querySelector("#future-goals .accordion-header.active");
+        if (activeHeader && activeHeader !== header) {
+            activeHeader.classList.remove("active");
+            activeHeader.nextElementSibling.classList.remove("active");
+        }
+
+        // Vaihdetaan klikatun otsikon tila (auki/kiinni)
+        header.classList.toggle("active");
+        const content = header.nextElementSibling; // Accordionin sisältö (content)
+        content.classList.toggle("active");
     });
 });
 
-// Responsiivisuuden vierityslogiikka poistettu

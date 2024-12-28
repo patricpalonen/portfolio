@@ -12,6 +12,7 @@
     --background-color: #f4f4f9; /* Kevyt taustaväri */
     --section-background: #e7f3ff; /* Kevyt sininen */
     --hover-color: #365899; /* Hover-efekti */
+    --accordion-color: #d9dadc; 
 }
 
 /* ------------------------------
@@ -104,8 +105,9 @@ nav ul {
 
 nav ul li a {
     text-decoration: none;
+    font-weight: 500;
     color: var(--secondary-color);
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
 /* Social links */
@@ -115,8 +117,8 @@ nav .social-links {
   }
   
   nav .social-links img {
-    width: 24px; /* Logon koko */
-    height: 24px;
+    width: 25px; /* Logon koko */
+    height: 25px;
     transition: transform 0.3s ease;
   }
   
@@ -274,54 +276,172 @@ nav.dots a.active {
   }
 
 /* ------------------------------
-   TULEVAISUUDEN TAVOITTEET
+   TULEVAISUUDEN TAVOITTEET - ACCORDION
 ------------------------------ */
 #future-goals {
-    background-color: #f9f9f9;
+    background-color: var(--secondary-color); /* Taustaväri */
     padding: 2rem 0;
     text-align: center;
 }
 
 #future-goals h2 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: #333;
+    font-size: 2rem; /* Otsikon koko */
+    margin-bottom: 2rem; /* Tilaa otsikon alapuolella */
+    color: #333; /* Tekstin väri */
 }
 
-.timeline {
-    display: flex; /* Aikajana vaakasuoraan */
-    gap: 2rem; /* Väli elementtien välillä */
-    justify-content: space-between; /* Jakaa tasaisesti */
-    align-items: center; /* Kohdistaa pystysuunnassa */
-    overflow-x: auto; /* Lisää vaakasuuntaisen vierityksen, jos tarvitaan */
+/* Accordion yleinen tyyli */
+.accordion {
+    min-width: 800px;
+    max-width: 800px; /* Maksimileveys */
+    margin: 0 auto; /* Keskittää accordionin */
+}
+
+.accordion-item {
+    margin-bottom: 1rem; /* Väli jokaisen osion välillä */
+    border: 1px solid #ddd; /* Reunaviiva */
+    border-radius: 8px; /* Pyöristetyt kulmat */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Varjo */
+    overflow: hidden; /* Piilottaa ylimenevät elementit */
+}
+
+/* Accordion otsikko */
+.accordion-header {
+    background-color: var(--background-color); /* Otsikon taustaväri */
+    color: var(--primary-color); /* Tekstin väri */
     padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    width: 100%;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.timeline-item {
+.accordion-header:hover {
+    background-color: #0056b3; /* Hover-väri */
+}
+
+.accordion-header span {
+    flex-grow: 1; /* Teksti venyy */
+}
+
+.accordion-header::after {
+    content: '\25BC'; /* Nuoli alas */
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.accordion-header.active::after {
+    transform: rotate(180deg); /* Kääntää nuolen ylös */
+}
+
+/* Accordion sisältö */
+.accordion-content {
+    display: none; /* Piilotettu oletuksena */
+    padding: 1rem;
     background-color: white;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    min-width: 150px; /* Vähimmäisleveys */
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.timeline-item h3 {
-    font-size: 1.5rem;
-    color: #007bff; /* Korosteväri */
-    margin-bottom: 0.5rem;
-}
-
-.timeline-item h4 {
-    font-size: 1rem;
-    color: var(--text-color);
-    margin-bottom: 0.5rem;
-}
-
-.timeline-item p {
-    font-size: 1rem;
     color: #555;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.accordion-content p {
+    margin: 0;
+}
+
+.accordion-content.active {
+    display: block; /* Näkyvissä, kun aktiivinen */
+}
+
+/* ------------------------------
+   OSAAMINEN - KORTIT
+------------------------------ */
+#competence {
+    background-color: var(--section-background); /* Taustaväri */
+    padding: 3rem 0; /* Ylä- ja alapadding */
+    text-align: center;
+}
+
+#competence h2 {
+    font-size: 2.5rem; /* Otsikon koko */
+    margin-bottom: 2rem; /* Tilaa otsikon alapuolella */
+    color: #333; /* Tekstin väri */
+}
+
+.grid-container {
+    display: grid; /* Käytetään grid-asettelua */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsiiviset kortit */
+    gap: 2rem; /* Väli korttien välillä */
+    max-width: 2200px; /* Rajoittaa gridin leveyden */
+    margin: 0 auto; /* Keskittää gridin */
+    padding: 0 1rem; /* Tilaa sivuilla */
+}
+
+.card {
+    background-color: #fff; /* Kortin taustaväri */
+    border: 1px solid #ddd; /* Kortin reunaväri */
+    border-radius: 8px; /* Pyöristetyt kulmat */
+    padding: 1.5rem; /* Sisäpadding */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Varjostus */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover-animaatiot */
+    text-align: left; /* Tekstin tasaus */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Nostaa korttia ylöspäin hoverilla */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Syvempi varjo hoverilla */
+}
+
+.card-icon {
+    font-size: 3rem; /* Ikonin koko */
+    color: #007bff; /* Ikonin väri */
+    margin-bottom: 1rem; /* Väli otsikon ja ikonin välillä */
+    text-align: center;
+}
+
+.card h3 {
+    font-size: 1.8rem; /* Otsikon koko */
+    color: #007bff; /* Korosteväri */
+    margin-bottom: 1rem; /* Väli otsikon jälkeen */
+    text-align: left;
+}
+
+.card p {
+    font-size: 1rem; /* Tekstin koko */
+    color: #555; /* Tekstin väri */
+    line-height: 1.8; /* Riviväli */
+    margin-bottom: 1rem; /* Väli tekstikappaleiden välillä */
+    text-align: left;
+}
+
+.card:last-child p {
+    margin-bottom: 0; /* Poistaa viimeisen kappaleen alareunavälin */
+}
+.card ul {
+    padding-left: 1.5rem; /* Listojen sisennys */
+    margin: 0 0 1rem 0; /* Väli listan jälkeen */
+}
+
+.card ul li {
+    font-size: 1rem; /* Listan tekstin koko */
+    color: #555;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    #competence h2 {
+        font-size: 2rem; /* Pienempi otsikon koko mobiilissa */
+    }
+
+    .card {
+        padding: 1rem; /* Vähemmän paddingia pienillä näytöillä */
+    }
 }
 
 /* ------------------------------
