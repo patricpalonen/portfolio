@@ -39,6 +39,7 @@
         <a href="#technologies"></a>
      </nav>
 
+     <main>
     <!-- Hero-osio -->
     <section id="hero" class="hero">
         <div class="container">
@@ -288,6 +289,29 @@
             </div>
         </div>
     </section>
+</main>
+    
+   <!-- Footer --> 
+    <footer class="footer">
+        <div class="container">
+            <p>Sivusto suunniteltu ja toteutettu itse opintojen tueksi.</p>
+            <p>
+                <a href="https://www.linkedin.com/in/patricpalonen/" target="_blank">LinkedIn</a> | 
+                <span id="email-link"></span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Lisää tämä ennen sulkevaa </body>-tägiä -->
+    <script>
+        // Sähköpostiosoitteen osien määrittely
+        const emailUser = 'patric.v.palonen';
+        const emailDomain = 'student.jyu.fi';
+
+        // HTML-lisäys sähköpostiosoitteelle
+        const emailElement = document.getElementById('email-link');
+        emailElement.innerHTML = `<a href="mailto:${emailUser}@${emailDomain}">${emailUser}@${emailDomain}</a>`;
+    </script>
 
     <script src="js/script.js"></script>
 

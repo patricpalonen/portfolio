@@ -451,6 +451,7 @@ nav.dots a.active {
     background-color: #f9f9f9; /* Taustaväri */
     padding: 2rem 0; /* Sisätyylitys */
     text-align: center;
+    margin-bottom: 0;
 }
 
 #technologies h2 {
@@ -497,6 +498,46 @@ nav.dots a.active {
     transform: scale(1.1); /* Kasvattaa kokoa hoverilla */
     cursor: pointer;
 }
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+.footer {
+    background-color: #f9f9f9; /* Sama taustaväri kuin osioilla */
+    padding: 1rem 0;
+    text-align: center;
+    position: fixed; /* Kiinteä sijainti */
+    bottom: 0; /* Alareunaan */
+    left: 0; /* Koko leveys */
+    width: 100%;
+    border-top: 1px solid #ddd; /* Hienovarainen ylärivi */
+    font-size: 0.9rem;
+    color: #555; /* Pehmeämpi tekstiväri */
+    z-index: 10; /* Varmistetaan, että footer on muiden elementtien päällä */
+}
+
+.footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.footer a {
+    color: #007bff; /* Korosteväri linkeille */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.footer p {
+    margin: 0.5rem 0;
+}
+
+
+
 
 /* ------------------------------
    MEDIASÄÄNNÖT
